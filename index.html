@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makayli Taylor's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Makayli Taylor</h1>
+    </header>
+
+    <main>
+		<div class="button-container">
+			<button><a href="index.html" class="button">Home</a></button>
+			<button><a href="About.html" class="button">About</a></button>
+		</div>
+		
+		<div class="button-container"> 
+			<form action="https://www.linkedin.com/in/makayli-taylor/">
+    			<input type="submit" value="LinkedIn" class="button sub"/>
+			</form>
+			<button class="button sub"><a onclick="copy()">makaylit21@gmail.com</a></button>
+				<div id="snackbar">Email Copied</div>">
+			<!--<button class="button sub">(360)451-4572</button>-->
+		</div >
+		
+		<div class="button-container">
+			<button><a href="Tech-Projects.html" class="button buttonR2">Technical Projects</a></button>
+			<button><a href="Graphic-Design.html" class="button buttonR2">Graphic Design</a></button>
+			<button><a href="3D-Models.html" class="button buttonR2">3D Modeling</a></button>
+		</div>		
+        
+        
+    </main>
+    <footer>
+    	
+        <p>&copy; 2024 Makayli Taylor</p>
+    </footer>
+</body>
+
+
+<script>
+function copy() {
+
+  // Copy the text inside the text field{
+  navigator.clipboard.writeText("makaylit21@gmail.com");
+  
+  // Alert the copied text
+	CopyMessage();
+}
+</script>
+
+<script>
+function CopyMessage() {
+  var x = document.getElementById("snackbar");
+  x.className = "show";
+  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
+</script>
+</html>
+
