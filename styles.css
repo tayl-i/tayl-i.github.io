@@ -13,12 +13,14 @@ body {
     margin: 0;
     padding: 0;
     background-color: white;
+    font-size: 24px;
 }
 
 header {
   background-color: #333;
   color: #FFFAE1;
   padding: 5%;
+  margin: 0%;
   text-align: left;
 	font-family: Georgia, serif;
 }
@@ -26,32 +28,41 @@ header {
 header h1 {
   margin: 0;
 	text-shadow: .1em .1em .1em #2F4F4F;
-	font-size: 6em;
-  padding-bottom: 1em;
+	font-size: 4.5em;
+  padding-bottom: .25em;
 }
 
 header h2 {
 	margin: 0;
-	font-size: 3em;
+	font-size: 2em;
 }
 
-header h3 {
+h2 {
   padding:0;
-  font-size: 2em;
+  margin: 0;
+  font-size: 1.5em;
   }
 
-header h4 {
+h3 {
 padding:0;
-line-height:1.1;
+margin: 0;
+font-size: 1.25em;
 }
 
-header h5 {
+h4 {
 padding:0;
-line-height:1.1;
-}
+margin: 0;
+font-size: 1em;}
+
 
 p{
-font-size: 1.6em;
+font-size: 1em;
+}
+
+div{
+  padding: 0;
+  margin: 0;
+  font-size: 1em;
 }
 
 .p-small{
@@ -68,12 +79,16 @@ ul {
   background-color: #2F4F4F;
 }
 
+li{
+font-size: 1em;
+}
+
 li a {
   display: block;
   color: #FFFAE1;
   padding: 8px 16px;
   text-decoration: none;
-  font-size: 2em;
+  font-size: 1.2em;
   border-bottom:#FFFAE1 solid 1px
 }
 
@@ -88,12 +103,6 @@ li a:hover:not(.active) {
   color: #2F4F4F;
 }
 
-table{
-font-size: 1.6em;
-}
-td{
-  padding-right:4em;
-}
 
 .tr-lang{
 line-height:1.5em;
@@ -112,7 +121,7 @@ line-height:1.5em;
 .foot-link{
   background-color: #4b8080;
   color: #FFFAE1;
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
   margin: 1em .6em 0 0;
   padding:.5em 1em;
@@ -129,6 +138,7 @@ footer {
     height:auto;
     bottom: 0;
     margin: auto;
+    font-size: .8em;
 }
 
 .row::after {
@@ -140,6 +150,9 @@ footer {
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
+  padding: .5em;
+  margin-top: 0em;
+  /*border: solid black;*/
 }
 
 .skill-label{
@@ -153,9 +166,10 @@ footer {
   color:black;
   background-color: transparent;
   margin: 0;
-  padding: 0;
+  line-height: 1.5em;
   width: 100%;
   list-style-position: inside;
+  font-size: 1em;
 }
 
 @media only screen and (min-width: 600px) {
