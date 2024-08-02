@@ -28,7 +28,7 @@ header {
 header h1 {
   margin: 0;
 	text-shadow: .1em .1em .1em #2F4F4F;
-	font-size: 4em;
+	font-size: 3.2em;
   padding-bottom: .25em;
   width: auto;
 }
@@ -161,7 +161,8 @@ footer {
   background-color: transparent;
   border: #333 solid 1px;
   padding: .1em;
-  margin: .3em;
+  margin: 1.5em;
+  
 }
 .body-list{
   color:black;
