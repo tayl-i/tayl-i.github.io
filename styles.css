@@ -28,8 +28,9 @@ header {
 header h1 {
   margin: 0;
 	text-shadow: .1em .1em .1em #2F4F4F;
-	font-size: 4.5em;
+	font-size: 4em;
   padding-bottom: .25em;
+  width: auto;
 }
 
 header h2 {
@@ -170,6 +171,17 @@ footer {
   width: 100%;
   list-style-position: inside;
   font-size: 1em;
+}
+
+.GD-image{
+  height:15em;
+  border: none;
+  margin: 0;
+  padding:0;
+}
+.GD-cap{
+  padding-top: auto;
+  padding-bottom: auto;
 }
 
 @media only screen and (min-width: 600px) {
