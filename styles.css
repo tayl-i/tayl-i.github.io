@@ -175,14 +175,16 @@ footer {
 }
 
 .GD-image{
-  height:15em;
+  height: 10em;
   border: none;
   margin: 0;
   padding:0;
+  display: flex;
 }
 .GD-cap{
   padding-top: auto;
   padding-bottom: auto;
+  padding-left:.5em;
 }
 
 @media only screen and (min-width: 600px) {
