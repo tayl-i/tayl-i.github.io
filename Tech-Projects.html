@@ -22,6 +22,50 @@
       </div>
       <div class="col-9 col-s-9">
         <div class="card">
+          <h2>E-Bike lighting System</h2>
+          <h3>August 2024</h3>
+          <p>Designed and manufactured a plug-and-play indicator system to improve rider safety. </p>
+           <!-- Slideshow container -->
+           <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <div class="numbertext">1 / 4</div>
+              <img src="TechProj/indicator/indicatorDia.PNG" style="width:100%">
+              <div class="text">Wiring Diagram</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">2 / 4</div>
+              <img src="TechProj/indicator/indicator1.jpg" style="width:100%">
+              <div class="text">internal system</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">3 / 4</div>
+              <img src="TechProj/indicator/indicator2.jpg" style="width:100%">
+              <div class="text">Front indicators (right illuminated)</div>
+            </div>
+            
+            <div class="mySlides fade">
+              <div class="numbertext">4 / 4</div>
+              <img src="TechProj/indicator/indicator3.jpg" style="width:100%">
+              <div class="text">Rear indicator (left illuminated)</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+            
+            </div>
+            <br>
+            
+            <div style="text-align:center">
+              <span class="dot" onclick="currentSlide(1)"></span> 
+              <span class="dot" onclick="currentSlide(2)"></span> 
+              <span class="dot" onclick="currentSlide(3)"></span> 
+              <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </div>
+        <div class="card">
           <h2>This Online Portfolio</h2>
           <h3>July 2024</h3>
           <p>In an effort to better showcase the skills I developed outside of my formal education I made this online portfolio using HTML, CSS, and Java, and hosted it through GitHub pages! </p>
@@ -34,11 +78,6 @@
           <p>For my senior CAPSTONE project I proposed that Washington State implement a high speed train station. The goal of this project was to find the optimal location for a central hub for this system using optimization analysis and math based software.</p>
           <p>Languages/Programs Used: MATLAB, LaTeX, Excel</p>
         </div>
-        <div class="card">
-          <h2>E-Bike lighting System</h2>
-          <h3>July 2024</h3>
-          <p>lights boop boop </p>
-        </div>
       </div>
     </div>
 
@@ -47,6 +86,35 @@
       <a href="https://github.com/tayl-i" class="foot-link">GitHub</a>
         <p>&copy; 2024 Makayli Taylor</p>
     </footer>
+
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+      
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " active";
+      }
+      </script>
 </body>
 </html>
 
