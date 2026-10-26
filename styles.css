@@ -14,10 +14,8 @@
 
   --radius: 0.75rem;
   --gap: clamp(1rem, 2.5vw, 2rem);
-  --page-width: 76rem;
+  --page-width: 72rem;
   --page-pad: clamp(1rem, 4vw, 2.5rem);
-  --sidebar-width: 22rem;
-  --nav-height: 3.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -107,9 +105,8 @@ ol {
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
   max-inline-size: var(--page-width);
-  min-block-size: var(--nav-height);
   margin-inline: auto;
-  padding: 0.5rem var(--page-pad);
+  padding: 0.75rem var(--page-pad);
   font-size: 0.9rem;
 }
 
@@ -146,56 +143,30 @@ ol {
 }
 
 /* ==========================================================================
-   Page layout (Grid)
-   Mobile: single column, sidebar falls to the end (source order).
-   Desktop: main content on the left, skills sidebar on the right.
+   Page wrapper
    ========================================================================== */
 .page {
   flex: 1;                       /* pushes footer down */
   inline-size: 100%;
   max-inline-size: var(--page-width);
   margin-inline: auto;
-  padding: clamp(2rem, 6vw, 4.5rem) var(--page-pad);
+  padding: clamp(2rem, 6vw, 5rem) var(--page-pad);
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
-}
-
-.page__main,
-.page__sidebar {
-  display: grid;
-  gap: var(--gap);
-  min-inline-size: 0;            /* lets grid children shrink instead of overflowing */
-}
-
-.page__main {
-  gap: clamp(2.5rem, 6vw, 4rem);
-}
-
-@media (min-width: 60rem) {
-  .page {
-    grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
-  }
-
-  /* Sidebar follows you down the page while the main column scrolls */
-  .page__sidebar {
-    position: sticky;
-    inset-block-start: calc(var(--nav-height) + 1.5rem);
-  }
+  gap: clamp(2.5rem, 6vw, 5rem);
 }
 
 /* ==========================================================================
-   Intro: large header + summary
+   Intro: hero heading + summary (Grid)
+   The summary sits in the right column on wide screens and flows directly
+   under the heading on small ones, so it reads as one continuous block.
    ========================================================================== */
 .intro {
   display: grid;
   gap: var(--gap);
-  padding-inline-start: clamp(0rem, 2vw, 1.5rem);   /* the "some padding" on the left */
 }
 
 .intro__title {
-  font-size: clamp(2.75rem, 2rem + 5vw, 6.5rem);
+  font-size: clamp(2.75rem, 3rem + 5vw, 7rem);
   line-height: 1.02;
   letter-spacing: -0.03em;
   font-weight: 800;
@@ -209,34 +180,73 @@ ol {
 .intro__summary {
   display: grid;
   gap: 1rem;
-  max-inline-size: 62ch;
+  max-inline-size: 65ch;
   color: var(--text-muted);
   font-size: 1.05rem;
 }
 
 .intro__lead {
   color: var(--text);
-  font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem);
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.6rem);
   line-height: 1.4;
   font-weight: 500;
   text-wrap: pretty;
 }
 
+@media (min-width: 60rem) {
+  .intro {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .intro__title {
+    grid-column: 1 / -1;
+  }
+  .intro__summary {
+    grid-column: 4 / -1;          /* offset: feels like it continues the heading */
+    padding-inline-start: var(--gap);
+    border-inline-start: 3px solid var(--accent);
+  }
+}
+
 /* ==========================================================================
-   Cards
+   Content grid: Education / Languages / Software
+   Auto-fitting columns with no media queries needed.
    ========================================================================== */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
+
+.card--wide {
+  grid-column: 1 / -1;           /* Education spans the full row */
+}
+
 .card {
-  padding: clamp(1.25rem, 3vw, 1.75rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  container-type: inline-size;   /* children can respond to card width */
+  container-type: inline-size;   /* lets children respond to card width */
 }
 
 .card__title {
-  margin-block-end: 1rem;
-  font-size: 1.1rem;
+  margin-block-end: 1.25rem;
+  font-size: 1.35rem;
   letter-spacing: -0.01em;
+}
+
+.card__subtitle {
+  margin-block: 1.25rem 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.card__title + .card__subtitle {
+  margin-block-start: 0;
 }
 
 /* ---------- Education timeline (Flexbox) ---------- */
@@ -298,14 +308,14 @@ ol {
 
 .skill {
   display: grid;
-  grid-template-columns: minmax(6rem, 1fr) 1fr;
+  grid-template-columns: minmax(7rem, 1fr) 2fr;
   align-items: center;
   gap: 1rem;
   font-size: 0.95rem;
 }
 
-/* Stack label above bar when the card is narrow */
-@container (max-width: 16rem) {
+/* Stack label above bar when the card gets narrow */
+@container (max-width: 22rem) {
   .skill {
     grid-template-columns: 1fr;
     gap: 0.25rem;
