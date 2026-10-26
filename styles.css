@@ -1,3 +1,5 @@
+@import url('https://googleapis.com');
+
 * {
   box-sizing: border-box;
 }
@@ -9,11 +11,12 @@
 
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white;
+    color: #1f2937;
     font-size: 24px;
+    line-height: 1.5;
 }
 
 header {
@@ -22,7 +25,7 @@ header {
   padding: 5%;
   margin: 0%;
   text-align: left;
-	font-family: Georgia, serif;
+  letter-spacing: -0.025em;
 }
 
 header h1 {
