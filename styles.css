@@ -1,100 +1,103 @@
-/* ==========================================================
-   1. Design tokens (custom properties)
-   ========================================================== */
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
 :root {
-  --color-bg: #f6f7fb;
-  --color-surface: #ffffff;
-  --color-text: #1c2030;
-  --color-muted: #5b6275;
-  --color-accent: #4f46e5;
-  --color-accent-soft: #e0e7ff;
-  --color-border: #e3e6ef;
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #1c1917;
+  --text-muted: #57534e;
+  --border: #e7e5e4;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
 
   --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  --space-xs: 0.5rem;
-  --space-sm: 1rem;
-  --space-md: 1.5rem;
-  --space-lg: 3rem;
-
   --radius: 0.75rem;
-  --shadow: 0 1px 3px rgb(0 0 0 / 0.06), 0 6px 20px rgb(0 0 0 / 0.05);
-  --content-width: 72rem;
+  --gap: clamp(1rem, 2.5vw, 2rem);
+  --page-width: 76rem;
+  --page-pad: clamp(1rem, 4vw, 2.5rem);
+  --sidebar-width: 22rem;
+  --nav-height: 3.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-bg: #11131c;
-    --color-surface: #1b1e2b;
-    --color-text: #eceef6;
-    --color-muted: #a1a8bd;
-    --color-accent: #8b93ff;
-    --color-accent-soft: #2a2f55;
-    --color-border: #2c3042;
-    --shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+    --bg: #0c0a09;
+    --surface: #1c1917;
+    --text: #f5f5f4;
+    --text-muted: #a8a29e;
+    --border: #292524;
+    --accent: #818cf8;
+    --accent-soft: #1e1b4b;
   }
 }
 
-/* ==========================================================
-   2. Reset / base
-   ========================================================== */
+/* ==========================================================================
+   Reset / base
+   ========================================================================== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-body {
+* {
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   min-height: 100dvh;
-  display: flex;               /* sticky-footer layout */
+  display: flex;                 /* sticky footer: flex column on body */
   flex-direction: column;
   font-family: var(--font-body);
   line-height: 1.6;
-  color: var(--color-text);
-  background: var(--color-bg);
-}
-
-h1, h2, h3, p {
-  margin: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  color: var(--text);
+  background: var(--bg);
 }
 
 a {
   color: inherit;
 }
 
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
 :focus-visible {
-  outline: 3px solid var(--color-accent);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
 .skip-link {
   position: absolute;
-  left: -999px;
-}
-.skip-link:focus {
-  left: var(--space-sm);
-  top: var(--space-sm);
-  padding: var(--space-xs) var(--space-sm);
-  background: var(--color-surface);
+  inset-inline-start: 1rem;
+  inset-block-start: -4rem;
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 0.5rem;
   z-index: 100;
 }
+.skip-link:focus {
+  inset-block-start: 1rem;
+}
 
-/* ==========================================================
-   3. Navigation (Flexbox)
-   ========================================================== */
+/* ==========================================================================
+   Navigation (Flexbox)
+   ========================================================================== */
 .site-header {
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   z-index: 10;
-  background: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(8px);
+  border-block-end: 1px solid var(--border);
 }
 
 .site-nav {
@@ -102,190 +105,260 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-xs) var(--space-md);
-  max-width: var(--content-width);
+  gap: 0.5rem 1.5rem;
+  max-inline-size: var(--page-width);
+  min-block-size: var(--nav-height);
   margin-inline: auto;
-  padding: var(--space-sm) var(--space-md);
+  padding: 0.5rem var(--page-pad);
+  font-size: 0.9rem;
 }
 
 .site-nav__brand {
   font-weight: 700;
+  letter-spacing: 0.02em;
   text-decoration: none;
 }
 
-.site-nav__list {
+.site-nav__links {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: 0.25rem;
 }
 
-.site-nav__list a {
+.site-nav__links a {
   display: block;
-  padding: 0.4rem 0.9rem;
+  padding: 0.35rem 0.75rem;
   border-radius: 999px;
+  color: var(--text-muted);
   text-decoration: none;
-  color: var(--color-muted);
   transition: background-color 0.2s, color 0.2s;
 }
 
-.site-nav__list a:hover,
-.site-nav__list a[aria-current="page"] {
-  background: var(--color-accent-soft);
-  color: var(--color-accent);
+.site-nav__links a:hover {
+  color: var(--text);
+  background: var(--accent-soft);
 }
 
-/* ==========================================================
-   4. Hero
-   ========================================================== */
-.hero {
-  display: grid;
-  place-content: center;
-  gap: var(--space-xs);
-  min-height: 40vh;
-  padding: var(--space-lg) var(--space-md);
-  text-align: center;
+.site-nav__links a[aria-current="page"] {
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 600;
 }
 
-.hero__title {
-  font-size: clamp(2.5rem, 3rem + 4vw, 5.5rem);   /* fluid type */
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.hero__name {
-  color: var(--color-accent);
-}
-
-.hero__tagline {
-  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
-  color: var(--color-muted);
-}
-
-/* ==========================================================
-   5. Page grid (CSS Grid)
-   ========================================================== */
-.page-grid {
-  flex: 1;                              /* pushes footer down */
-  width: min(100% - 2 * var(--space-md), var(--content-width));
+/* ==========================================================================
+   Page layout (Grid)
+   Mobile: single column, sidebar falls to the end (source order).
+   Desktop: main content on the left, skills sidebar on the right.
+   ========================================================================== */
+.page {
+  flex: 1;                       /* pushes footer down */
+  inline-size: 100%;
+  max-inline-size: var(--page-width);
   margin-inline: auto;
-  padding-bottom: var(--space-lg);
-
+  padding: clamp(2rem, 6vw, 4.5rem) var(--page-pad);
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--space-md);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
 }
 
-/* Default: every card spans half the grid */
-.card {
-  grid-column: span 6;
-  padding: var(--space-md);
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+.page__main,
+.page__sidebar {
+  display: grid;
+  gap: var(--gap);
+  min-inline-size: 0;            /* lets grid children shrink instead of overflowing */
 }
 
-.card h2 {
-  margin-bottom: var(--space-sm);
-  font-size: 1.35rem;
+.page__main {
+  gap: clamp(2.5rem, 6vw, 4rem);
 }
 
-.card p + p {
-  margin-top: var(--space-sm);
-}
+@media (min-width: 60rem) {
+  .page {
+    grid-template-columns: minmax(0, 1fr) var(--sidebar-width);
+  }
 
-/* About gets the full row */
-.card--about {
-  grid-column: 1 / -1;
-  max-width: none;
-}
-
-/* Tablet and below: stack everything */
-@media (max-width: 48rem) {
-  .card {
-    grid-column: 1 / -1;
+  /* Sidebar follows you down the page while the main column scrolls */
+  .page__sidebar {
+    position: sticky;
+    inset-block-start: calc(var(--nav-height) + 1.5rem);
   }
 }
 
-/* ==========================================================
-   6. Section-specific components
-   ========================================================== */
-
-/* Education timeline */
-.timeline {
+/* ==========================================================================
+   Intro: large header + summary
+   ========================================================================== */
+.intro {
   display: grid;
-  gap: var(--space-md);
+  gap: var(--gap);
+  padding-inline-start: clamp(0rem, 2vw, 1.5rem);   /* the "some padding" on the left */
 }
 
-.timeline__item {
-  padding-left: var(--space-sm);
-  border-left: 3px solid var(--color-accent);
+.intro__title {
+  font-size: clamp(2.75rem, 2rem + 5vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  text-wrap: balance;
 }
 
-.timeline__item h3 {
+.intro__name {
+  color: var(--accent);
+}
+
+.intro__summary {
+  display: grid;
+  gap: 1rem;
+  max-inline-size: 62ch;
+  color: var(--text-muted);
   font-size: 1.05rem;
 }
 
-.timeline__meta {
-  color: var(--color-muted);
-  font-size: 0.9rem;
+.intro__lead {
+  color: var(--text);
+  font-size: clamp(1.2rem, 1rem + 1vw, 1.5rem);
+  line-height: 1.4;
+  font-weight: 500;
+  text-wrap: pretty;
 }
 
-/* Language tags: auto-fitting grid */
-.tag-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-  gap: var(--space-xs);
-}
-
-.tag-list li {
-  padding: 0.5rem 0.75rem;
-  text-align: center;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--color-accent);
-  background: var(--color-accent-soft);
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+.card {
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
+  container-type: inline-size;   /* children can respond to card width */
 }
 
-/* Software proficiency: label on the left, meter fills the rest */
-.skill-list {
+.card__title {
+  margin-block-end: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Education timeline (Flexbox) ---------- */
+.timeline {
   display: grid;
-  gap: var(--space-sm);
+  gap: 1rem;
 }
 
-.skill {
+.timeline__item {
   display: flex;
-  align-items: center;
-  gap: var(--space-sm);
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1.5rem;
+  padding-block-end: 1rem;
+  border-block-end: 1px solid var(--border);
 }
 
-.skill label {
-  flex: 0 0 9rem;
+.timeline__item:last-child {
+  padding-block-end: 0;
+  border-block-end: 0;
+}
+
+.timeline__meta h3 {
+  font-size: 1.05rem;
+}
+
+.timeline__meta p,
+.timeline__date {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.timeline__date {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Language chips (Flexbox wrap) ---------- */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip-list li {
+  padding: 0.3rem 0.8rem;
+  font-size: 0.9rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
   font-weight: 500;
 }
 
-.skill meter {
-  flex: 1;
-  height: 0.8rem;
-  accent-color: var(--color-accent);
+/* ---------- Software proficiency (Grid rows) ---------- */
+.skill-list {
+  display: grid;
+  gap: 0.9rem;
 }
 
-/* ==========================================================
-   7. Footer
-   ========================================================== */
+.skill {
+  display: grid;
+  grid-template-columns: minmax(6rem, 1fr) 1fr;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Stack label above bar when the card is narrow */
+@container (max-width: 16rem) {
+  .skill {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
+meter {
+  inline-size: 100%;
+  block-size: 0.6rem;
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+meter::-webkit-meter-bar {
+  background: var(--border);
+  border: 0;
+  border-radius: 999px;
+  block-size: 0.6rem;
+}
+
+meter::-webkit-meter-optimum-value,
+meter::-webkit-meter-suboptimum-value,
+meter::-webkit-meter-even-less-good-value {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+meter::-moz-meter-bar {
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
 .site-footer {
-  padding: var(--space-md);
+  padding: 1.5rem var(--page-pad);
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--color-muted);
-  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border-block-start: 1px solid var(--border);
 }
 
-/* ==========================================================
-   8. Reduced motion
-   ========================================================== */
+/* ==========================================================================
+   Motion preferences
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   * {
     transition: none !important;
   }

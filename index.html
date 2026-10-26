@@ -3,200 +3,137 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Portfolio and about page for [Your Name]">
+  <meta name="color-scheme" content="light dark">
   <title>[Your Name] | Portfolio</title>
-  <meta name="description" content="Personal and professional portfolio of [Your Name].">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Navigation: each link will lead to a project category page -->
+  <!-- NAVIGATION (Flexbox) -->
   <header class="site-header">
-    <nav class="site-nav" aria-label="Main">
-      <a class="site-nav__brand" href="index.html">[Your Name]</a>
-      <ul class="site-nav__list">
+    <nav class="site-nav" aria-label="Primary">
+      <a class="site-nav__brand" href="index.html">[Your Initials]</a>
+      <ul class="site-nav__links">
         <li><a href="index.html" aria-current="page">About</a></li>
-        <li><a href="Certifications.html">Certifications</a></li>
-        <li><a href="CAD-Projects.html">CAD Projects</a></li>
-        <li><a href="Tech-Projects.html">Technical Projects</a></li>
-        <li><a href="3D-Models.html">3D Modeling</a></li>
+        <li><a href="web.html">Web</a></li>
+        <li><a href="software.html">Software</a></li>
+        <li><a href="design.html">Design</a></li>
+        <li><a href="other.html">Other</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1 class="hero__title">I'm <span class="hero__name">[Your Name]</span></h1>
-    <p class="hero__tagline">[Your title or one-line tagline]</p>
-  </section>
+  <!-- PAGE LAYOUT (Grid): main column + sidebar.
+       Sidebar comes second in the source, so on small screens
+       it naturally stacks at the end. -->
+  <div class="page">
 
-  <main id="main" class="page-grid">
+    <main id="main" class="page__main">
 
-    <!-- About -->
-    <section class="card card--about" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Me</h2>
-      <p>
-        Write a short personal and professional summary here: who you are,
-        what you do, what you're passionate about, and what you're looking for next.
-      </p>
-      <p>
-        A second paragraph can cover interests, goals, or what you're
-        currently learning.
-      </p>
-    </section>
+      <!-- HEADER + SUMMARY -->
+      <section class="intro" aria-labelledby="hero-title">
+        <h1 id="hero-title" class="intro__title">
+          I'm <span class="intro__name">[Your Name]</span>.
+        </h1>
 
-    <!-- Education -->
-    <section class="card card--education" aria-labelledby="education-heading">
-      <h2 id="education-heading">Education</h2>
-      <ul class="timeline">
-        <li class="timeline__item">
-          <h3>[Degree / Program]</h3>
-          <p class="timeline__meta">[School Name] &middot; [Start Year] &ndash; [End Year]</p>
-          <p>[Optional: focus area, honors, relevant coursework]</p>
-        </li>
-        <li class="timeline__item">
-          <h3>[Certificate / Previous Program]</h3>
-          <p class="timeline__meta">[School or Provider] &middot; [Year]</p>
-        </li>
-      </ul>
-    </section>
+        <div class="intro__summary">
+          <p class="intro__lead">
+            A one-sentence hook about what you do and what you care about.
+          </p>
+          <p>
+            Your personal and professional summary goes here. Cover your background,
+            what drives your work, and the kinds of problems you enjoy solving.
+          </p>
+          <p>
+            A second short paragraph can mention current focus areas, interests
+            outside of work, or what you're looking for next.
+          </p>
+        </div>
+      </section>
 
-    <!-- Languages -->
-    <section class="card card--languages" aria-labelledby="languages-heading">
-      <h2 id="languages-heading">Programming &amp; Markup Languages</h2>
-      <ul class="tag-list">
-        <li>HTML</li>
-        <li>CSS</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>Java</li>
-        <li>SQL</li>
-        <li>Markdown</li>
-        <li>XML</li>
-      </ul>
-    </section>
+      <!-- EDUCATION -->
+      <section class="card" aria-labelledby="education-title">
+        <h2 id="education-title" class="card__title">Education</h2>
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__meta">
+              <h3>[Degree / Program]</h3>
+              <p>[School Name]</p>
+            </div>
+            <time class="timeline__date" datetime="2024">2020 &ndash; 2024</time>
+          </li>
+          <li class="timeline__item">
+            <div class="timeline__meta">
+              <h3>[Certificate / Earlier Program]</h3>
+              <p>[Institution]</p>
+            </div>
+            <time class="timeline__date" datetime="2020">2018 &ndash; 2020</time>
+          </li>
+        </ol>
+      </section>
 
-    <!-- Software proficiency -->
-    <section class="card card--software" aria-labelledby="software-heading">
-      <h2 id="software-heading">Software Proficiency</h2>
-      <ul class="skill-list">
-        <li class="skill">
-          <label for="skill-vscode">VS Code</label>
-          <meter id="skill-vscode" min="0" max="100" value="90">90%</meter>
-        </li>
-        <li class="skill">
-          <label for="skill-git">Git / GitHub</label>
-          <meter id="skill-git" min="0" max="100" value="75">75%</meter>
-        </li>
-        <li class="skill">
-          <label for="skill-figma">Figma</label>
-          <meter id="skill-figma" min="0" max="100" value="60">60%</meter>
-        </li>
-        <li class="skill">
-          <label for="skill-office">Microsoft Office</label>
-          <meter id="skill-office" min="0" max="100" value="85">85%</meter>
-        </li>
-      </ul>
-    </section>
+    </main>
 
-  </main>
+    <!-- SIDEBAR: skills stacked vertically -->
+    <aside class="page__sidebar" aria-label="Skills">
+
+      <section class="card" aria-labelledby="programming-title">
+        <h2 id="programming-title" class="card__title">Programming Languages</h2>
+        <ul class="chip-list">
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Java</li>
+          <li>C#</li>
+          <li>SQL</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="markup-title">
+        <h2 id="markup-title" class="card__title">Markup Languages</h2>
+        <ul class="chip-list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Markdown</li>
+          <li>XML</li>
+          <li>JSON</li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="software-title">
+        <h2 id="software-title" class="card__title">Software Proficiency</h2>
+        <ul class="skill-list">
+          <li class="skill">
+            <label for="skill-vscode">VS Code</label>
+            <meter id="skill-vscode" min="0" max="5" value="5">5 out of 5</meter>
+          </li>
+          <li class="skill">
+            <label for="skill-git">Git / GitHub</label>
+            <meter id="skill-git" min="0" max="5" value="4">4 out of 5</meter>
+          </li>
+          <li class="skill">
+            <label for="skill-figma">Figma</label>
+            <meter id="skill-figma" min="0" max="5" value="3">3 out of 5</meter>
+          </li>
+          <li class="skill">
+            <label for="skill-adobe">Adobe Creative Suite</label>
+            <meter id="skill-adobe" min="0" max="5" value="3">3 out of 5</meter>
+          </li>
+          <li class="skill">
+            <label for="skill-office">Microsoft Office</label>
+            <meter id="skill-office" min="0" max="5" value="4">4 out of 5</meter>
+          </li>
+        </ul>
+      </section>
+
+    </aside>
+  </div>
 
   <footer class="site-footer">
-    <p>&copy; 2026 [Your Name]. Built with HTML, Flexbox &amp; Grid.</p>
+    <p>&copy; 2026 [Your Name]</p>
   </footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- Additional content from Archive/index%20v1.html -->
- <!--
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Makayli Taylor's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-
-<body>
-
-  <header>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="Tech-Projects.html" >Technical Projects</a></li>
-        <li><a href="Certifications.html" >Certifications</a><li>          
-        <li><a href="3D-Models.html" >3D Modeling</a></li>
-        <li><a href="CAD-Projects.html " >3D CAD Projects</a></li>          
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <article>
-       <p> I'm Mak...</p>
-       <p>
-        I’m a lifelong Washington resident with a degree in computational applied mathematics and an automotive technology certification, pairing analytical rigor with hands-on mechanical skill. I’ve been building computers for over a decade, and I bring that same systems-level thinking to everything I make.
-      </p>
-      <p>
-        My work sits where technical precision meets creative expression. I design in CAD, model and render in 3D, create digital art, and bring ideas into the physical world through 3D printing and woodworking. I enjoy the full cycle of taking a concept from math and design to a finished, tangible result.
-      </p>
-      </article>
-      <aside>
-      
-      </aside>
-
-    </section>
-    
-
-      </main>
-
-    
-  <footer>
-      <a href="https://www.linkedin.com/in/makayli-taylor/" class="foot-link">LinkedIn</a>
-      <a href="https://github.com/tayl-i" class="foot-link">GitHub</a>
-        <p>&copy; 2026 Makayli Taylor</p>
-    </footer>
-
-</body>
-
-
-
-
-
-<script>
-function copy() {
-
-  // Copy the text inside the text field{
-  navigator.clipboard.writeText("makaylit21@gmail.com");
-  
-  // Alert the copied text
-	CopyMessage();
-}
-</script>
-
-<script>
-function CopyMessage() {
-  var x = document.getElementById("snackbar");
-  x.className = "show";
-  setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-}
-</script>
-</html>
--->
