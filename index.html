@@ -15,7 +15,7 @@
   <!-- NAVIGATION (Flexbox) -->
   <header class="site-header">
     <nav class="site-nav" aria-label="Primary">
-      <a class="site-nav__brand" href="/">[Your Initials]</a>
+      <a class="site-nav__brand" href="index.html">[Your Initials]</a>
       <ul class="site-nav__links">
         <li><a href="index.html" aria-current="page">About</a></li>
         <li><a href="web.html">Web</a></li>
@@ -27,16 +27,12 @@
   </header>
 
   <main id="main" class="page">
-
-    <!--
-      PAGE LAYOUT (Grid)
-      Wide screens: two columns. Left = intro + education, right = skill cards.
-      Narrow screens: one column in DOM order, so the skill cards land at the end.
-    -->
+    <!-- TWO-COLUMN LAYOUT (Grid): primary column + sidebar.
+         On small screens the sidebar drops below the primary column. -->
     <div class="layout">
 
-      <!-- LEFT COLUMN -->
-      <div class="layout__main">
+      <!-- PRIMARY COLUMN -->
+      <div class="primary">
 
         <section class="intro" aria-labelledby="hero-title">
           <h1 id="hero-title" class="intro__title">
@@ -44,15 +40,13 @@
           </h1>
 
           <div class="intro__summary">
-            <p class="intro__lead">
-              A one-sentence hook about what you do and what you care about.
+            <p>
+              Your personal and professional summary goes here, written as
+              regular paragraphs. Cover your background, what drives your work,
+              and the kinds of problems you enjoy solving.
             </p>
             <p>
-              Your personal and professional summary goes here. Cover your background,
-              what drives your work, and the kinds of problems you enjoy solving.
-            </p>
-            <p>
-              A second short paragraph can mention current focus areas, interests
+              A second paragraph can mention current focus areas, interests
               outside of work, or what you're looking for next.
             </p>
           </div>
@@ -80,11 +74,11 @@
 
       </div>
 
-      <!-- RIGHT COLUMN: three separate cards, stacked vertically -->
-      <aside class="layout__side" aria-label="Skills">
+      <!-- SIDEBAR: three separate cards -->
+      <aside class="sidebar" aria-label="Skills">
 
-        <section class="card" aria-labelledby="prog-title">
-          <h2 id="prog-title" class="card__title">Programming Languages</h2>
+        <section class="card" aria-labelledby="programming-title">
+          <h2 id="programming-title" class="card__title">Programming Languages</h2>
           <ul class="chip-list">
             <li>JavaScript</li>
             <li>Python</li>
