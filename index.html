@@ -15,7 +15,7 @@
   <!-- NAVIGATION (Flexbox) -->
   <header class="site-header">
     <nav class="site-nav" aria-label="Primary">
-      <a class="site-nav__brand" href="index.html">[Your Initials]</a>
+      <a class="site-nav__brand" href="/">[Your Initials]</a>
       <ul class="site-nav__links">
         <li><a href="index.html" aria-current="page">About</a></li>
         <li><a href="web.html">Web</a></li>
@@ -26,110 +26,114 @@
     </nav>
   </header>
 
-  <!-- PAGE LAYOUT (Grid): main column + sidebar.
-       Sidebar comes second in the source, so on small screens
-       it naturally stacks at the end. -->
-  <div class="page">
+  <main id="main" class="page">
 
-    <main id="main" class="page__main">
+    <!--
+      PAGE LAYOUT (Grid)
+      Wide screens: two columns. Left = intro + education, right = skill cards.
+      Narrow screens: one column in DOM order, so the skill cards land at the end.
+    -->
+    <div class="layout">
 
-      <!-- HEADER + SUMMARY -->
-      <section class="intro" aria-labelledby="hero-title">
-        <h1 id="hero-title" class="intro__title">
-          I'm <span class="intro__name">[Your Name]</span>.
-        </h1>
+      <!-- LEFT COLUMN -->
+      <div class="layout__main">
 
-        <div class="intro__summary">
-          <p class="intro__lead">
-            A one-sentence hook about what you do and what you care about.
-          </p>
-          <p>
-            Your personal and professional summary goes here. Cover your background,
-            what drives your work, and the kinds of problems you enjoy solving.
-          </p>
-          <p>
-            A second short paragraph can mention current focus areas, interests
-            outside of work, or what you're looking for next.
-          </p>
-        </div>
-      </section>
+        <section class="intro" aria-labelledby="hero-title">
+          <h1 id="hero-title" class="intro__title">
+            I'm <span class="intro__name">[Your Name]</span>.
+          </h1>
 
-      <!-- EDUCATION -->
-      <section class="card" aria-labelledby="education-title">
-        <h2 id="education-title" class="card__title">Education</h2>
-        <ol class="timeline">
-          <li class="timeline__item">
-            <div class="timeline__meta">
-              <h3>[Degree / Program]</h3>
-              <p>[School Name]</p>
-            </div>
-            <time class="timeline__date" datetime="2024">2020 &ndash; 2024</time>
-          </li>
-          <li class="timeline__item">
-            <div class="timeline__meta">
-              <h3>[Certificate / Earlier Program]</h3>
-              <p>[Institution]</p>
-            </div>
-            <time class="timeline__date" datetime="2020">2018 &ndash; 2020</time>
-          </li>
-        </ol>
-      </section>
+          <div class="intro__summary">
+            <p class="intro__lead">
+              A one-sentence hook about what you do and what you care about.
+            </p>
+            <p>
+              Your personal and professional summary goes here. Cover your background,
+              what drives your work, and the kinds of problems you enjoy solving.
+            </p>
+            <p>
+              A second short paragraph can mention current focus areas, interests
+              outside of work, or what you're looking for next.
+            </p>
+          </div>
+        </section>
 
-    </main>
+        <section class="education" aria-labelledby="education-title">
+          <h2 id="education-title" class="section-title">Education</h2>
+          <ol class="timeline">
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <h3>[Degree / Program]</h3>
+                <p>[School Name]</p>
+              </div>
+              <time class="timeline__date" datetime="2024">2020 &ndash; 2024</time>
+            </li>
+            <li class="timeline__item">
+              <div class="timeline__meta">
+                <h3>[Certificate / Earlier Program]</h3>
+                <p>[Institution]</p>
+              </div>
+              <time class="timeline__date" datetime="2020">2018 &ndash; 2020</time>
+            </li>
+          </ol>
+        </section>
 
-    <!-- SIDEBAR: skills stacked vertically -->
-    <aside class="page__sidebar" aria-label="Skills">
+      </div>
 
-      <section class="card" aria-labelledby="programming-title">
-        <h2 id="programming-title" class="card__title">Programming Languages</h2>
-        <ul class="chip-list">
-          <li>JavaScript</li>
-          <li>Python</li>
-          <li>Java</li>
-          <li>C#</li>
-          <li>SQL</li>
-        </ul>
-      </section>
+      <!-- RIGHT COLUMN: three separate cards, stacked vertically -->
+      <aside class="layout__side" aria-label="Skills">
 
-      <section class="card" aria-labelledby="markup-title">
-        <h2 id="markup-title" class="card__title">Markup Languages</h2>
-        <ul class="chip-list">
-          <li>HTML5</li>
-          <li>CSS3</li>
-          <li>Markdown</li>
-          <li>XML</li>
-          <li>JSON</li>
-        </ul>
-      </section>
+        <section class="card" aria-labelledby="prog-title">
+          <h2 id="prog-title" class="card__title">Programming Languages</h2>
+          <ul class="chip-list">
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Java</li>
+            <li>C#</li>
+            <li>SQL</li>
+          </ul>
+        </section>
 
-      <section class="card" aria-labelledby="software-title">
-        <h2 id="software-title" class="card__title">Software Proficiency</h2>
-        <ul class="skill-list">
-          <li class="skill">
-            <label for="skill-vscode">VS Code</label>
-            <meter id="skill-vscode" min="0" max="5" value="5">5 out of 5</meter>
-          </li>
-          <li class="skill">
-            <label for="skill-git">Git / GitHub</label>
-            <meter id="skill-git" min="0" max="5" value="4">4 out of 5</meter>
-          </li>
-          <li class="skill">
-            <label for="skill-figma">Figma</label>
-            <meter id="skill-figma" min="0" max="5" value="3">3 out of 5</meter>
-          </li>
-          <li class="skill">
-            <label for="skill-adobe">Adobe Creative Suite</label>
-            <meter id="skill-adobe" min="0" max="5" value="3">3 out of 5</meter>
-          </li>
-          <li class="skill">
-            <label for="skill-office">Microsoft Office</label>
-            <meter id="skill-office" min="0" max="5" value="4">4 out of 5</meter>
-          </li>
-        </ul>
-      </section>
+        <section class="card" aria-labelledby="markup-title">
+          <h2 id="markup-title" class="card__title">Markup Languages</h2>
+          <ul class="chip-list">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Markdown</li>
+            <li>XML</li>
+            <li>JSON</li>
+          </ul>
+        </section>
 
-    </aside>
-  </div>
+        <section class="card" aria-labelledby="software-title">
+          <h2 id="software-title" class="card__title">Software Proficiency</h2>
+          <ul class="skill-list">
+            <li class="skill">
+              <label for="skill-vscode">VS Code</label>
+              <meter id="skill-vscode" min="0" max="5" value="5">5 out of 5</meter>
+            </li>
+            <li class="skill">
+              <label for="skill-git">Git / GitHub</label>
+              <meter id="skill-git" min="0" max="5" value="4">4 out of 5</meter>
+            </li>
+            <li class="skill">
+              <label for="skill-figma">Figma</label>
+              <meter id="skill-figma" min="0" max="5" value="3">3 out of 5</meter>
+            </li>
+            <li class="skill">
+              <label for="skill-adobe">Adobe Creative Suite</label>
+              <meter id="skill-adobe" min="0" max="5" value="3">3 out of 5</meter>
+            </li>
+            <li class="skill">
+              <label for="skill-office">Microsoft Office</label>
+              <meter id="skill-office" min="0" max="5" value="4">4 out of 5</meter>
+            </li>
+          </ul>
+        </section>
+
+      </aside>
+    </div>
+  </main>
 
   <footer class="site-footer">
     <p>&copy; 2026 [Your Name]</p>
