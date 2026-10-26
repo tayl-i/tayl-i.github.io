@@ -1,115 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Your Name] | Portfolio</title>
+  <meta name="description" content="Personal and professional portfolio of [Your Name].">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navigation: each link will lead to a project category page -->
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a class="site-nav__brand" href="index.html">[Your Name]</a>
+      <ul class="site-nav__list">
+        <li><a href="index.html" aria-current="page">About</a></li>
+        <li><a href="Certifications.html">Certifications</a></li>
+        <li><a href="CAD-Projects.html">CAD Projects</a></li>
+        <li><a href="Tech-Projects.html">Technical Projects</a></li>
+        <li><a href="3D-Models.html">3D Modeling</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1 class="hero__title">I'm <span class="hero__name">[Your Name]</span></h1>
+    <p class="hero__tagline">[Your title or one-line tagline]</p>
+  </section>
+
+  <main id="main" class="page-grid">
+
+    <!-- About -->
+    <section class="card card--about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        Write a short personal and professional summary here: who you are,
+        what you do, what you're passionate about, and what you're looking for next.
+      </p>
+      <p>
+        A second paragraph can cover interests, goals, or what you're
+        currently learning.
+      </p>
+    </section>
+
+    <!-- Education -->
+    <section class="card card--education" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+      <ul class="timeline">
+        <li class="timeline__item">
+          <h3>[Degree / Program]</h3>
+          <p class="timeline__meta">[School Name] &middot; [Start Year] &ndash; [End Year]</p>
+          <p>[Optional: focus area, honors, relevant coursework]</p>
+        </li>
+        <li class="timeline__item">
+          <h3>[Certificate / Previous Program]</h3>
+          <p class="timeline__meta">[School or Provider] &middot; [Year]</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Languages -->
+    <section class="card card--languages" aria-labelledby="languages-heading">
+      <h2 id="languages-heading">Programming &amp; Markup Languages</h2>
+      <ul class="tag-list">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>Python</li>
+        <li>Java</li>
+        <li>SQL</li>
+        <li>Markdown</li>
+        <li>XML</li>
+      </ul>
+    </section>
+
+    <!-- Software proficiency -->
+    <section class="card card--software" aria-labelledby="software-heading">
+      <h2 id="software-heading">Software Proficiency</h2>
+      <ul class="skill-list">
+        <li class="skill">
+          <label for="skill-vscode">VS Code</label>
+          <meter id="skill-vscode" min="0" max="100" value="90">90%</meter>
+        </li>
+        <li class="skill">
+          <label for="skill-git">Git / GitHub</label>
+          <meter id="skill-git" min="0" max="100" value="75">75%</meter>
+        </li>
+        <li class="skill">
+          <label for="skill-figma">Figma</label>
+          <meter id="skill-figma" min="0" max="100" value="60">60%</meter>
+        </li>
+        <li class="skill">
+          <label for="skill-office">Microsoft Office</label>
+          <meter id="skill-office" min="0" max="100" value="85">85%</meter>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 [Your Name]. Built with HTML, Flexbox &amp; Grid.</p>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Additional content from Archive/index%20v1.html -->
+ <!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Makayli Taylor's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<!-- Old layout -->
-<!-- 
-<body>
-    <header>
-        <h1>Makayli Taylor</h1>
-        <h2>Portfolio</h2>
-    </header>
- 
-  <div class="row">
-    <div class="col-3 col-s-3 menu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="Tech-Projects.html" >Technical Projects</a></li>
-          <li><a href="Certifications.html" >Certifications</a><li>          
-          <li><a href="3D-Models.html" >3D Modeling</a></li>
-          <li><a href="CAD-Projects.html " >3D CAD Projects</a></li>          
-        </ul>
-    </div>
-    <div class="col-7 col-s-9">
-      <h2>About me</h2>
-      <p> I'm Mak...</p>
-      <p>
-        I’m a lifelong Washington resident with a degree in computational applied mathematics and an automotive technology certification, pairing analytical rigor with hands-on mechanical skill. I’ve been building computers for over a decade, and I bring that same systems-level thinking to everything I make.
-      </p>
-      <p>
-        My work sits where technical precision meets creative expression. I design in CAD, model and render in 3D, create digital art, and bring ideas into the physical world through 3D printing and woodworking. I enjoy the full cycle of taking a concept from math and design to a finished, tangible result.
-      </p>
-        
-
-      <h3>Education</h3>
-      <p>
-      B.S. Computational Applied Mathemtics
-        <br>
-      <em>Washington State University</em>
-      </p>
-      <p>
-      Certificate Automotive Technology
-        <br>
-      <em>UEI Technical Institute</em>
-      </p>
-
-      <div class="col-9 col-s-9">
-        <h3>Languges</h3>
-          <div class="col-6 col-s-6">
-            <h4>Programming</h4>
-            <table>
-              <tr>
-                <td>
-                  <ul class="body-list">
-                    <li>Python</li>
-                    <li>C/C++</li>
-                    <li>R</li>
-                    <li>Java</li>
-                  </ul>
-                </td>
-                <td>
-                  <ul class="body-list">
-                    <li><span class="skill-label">3.5/5</span></li>
-                    <li><span class="skill-label">4/5</span></li>
-                    <li><span class="skill-label">3/5</span></li>
-                    <li><span class="skill-label">3/5</span></li>
-                  </ul>
-                </td>
-              </tr>
-            </table>
-          </div>
-        <div class="col-6 col-s-6">
-          <h4>Markup</h4>
-          <table>
-            <tr>
-              <td>
-                <ul class="body-list">
-                  <li>HTML</li>
-                  <li>LaTeX</li>
-                  <li>MathML</li>
-                </ul>
-              </td>
-              <td>
-                <ul class="body-list">
-                  <li><span class="skill-label">4/5</span></li>
-                  <li><span class="skill-label">5/5</span></li>
-                  <li><span class="skill-label">3/5</span></li>
-                </ul>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="col-9 col-s-9">
-          <h3>Software Profficiencies</h3>
-            <ul class="body-list">
-                  <li>Microsoft Suite</li>
-                  <li>Autodesk Fusion (Fusion360)</li>
-                  <li>Blender3D</li>
-                  <li>VSCode</li>
-              </ul>
-        </div>
-    </div>
-  </div>
--->
 
 <body>
+
   <header>
     <nav>
       <ul>
@@ -142,18 +167,6 @@
 
       </main>
 
-
-
-
-
-
-
-      <!--
-			<button class="button sub"><a onclick="copy()">makaylit21@gmail.com</a></button>
-				<div id="snackbar">Email Copied</div>">
-			<button class="button sub">(360)451-4572</button>-->
-    
-    
     
   <footer>
       <a href="https://www.linkedin.com/in/makayli-taylor/" class="foot-link">LinkedIn</a>
@@ -186,13 +199,4 @@ function CopyMessage() {
 }
 </script>
 </html>
-
-<!--
-cd C:\Users\mayka\Documents\GitHub\makayli
-
-git add .
-
-git commit -m "Update website content and styles"
-
-git push origin main
 -->
